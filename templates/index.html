@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Idealab</title>
+{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Idealab</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="post_idea" method="post" id="frm">
+                <h1 class="text-center">Submit idea</h1>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="text" class="form-control mt-4" name="programing_laungage" placeholder="programming laungage">
+                <textarea class="form-control mt-4" name="idea" placeholder="idea"></textarea>
+                <input type="text" class="form-control mt-4" name="by" placeholder="by">
+                <center><input type="submit" class="btn btn-danger mt-4"></center>
+            </form>
+        </div>
+        <div class="col-md-6" id="ideas">
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename = 'index.js') }}"></script>
+
+{% endblock %}
